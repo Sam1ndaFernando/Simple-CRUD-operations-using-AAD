@@ -19,7 +19,7 @@ public class StudentController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //todo : Save Student
-        if (req.getContextPath().toLowerCase().startsWith("application/json") || req.getContentType()==null) {
+        if (!req.getContextPath().toLowerCase().startsWith("application/json") || req.getContentType()==null) {
 
             //send Error
             resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);
