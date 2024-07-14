@@ -1,6 +1,6 @@
 package controller;
 
-import dto.studentDto;
+import dto.StudentDto;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
@@ -13,9 +13,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -51,7 +49,7 @@ public class StudentController extends HttpServlet {
        //todo : Save Student with array type
         String id = UUID.randomUUID().toString();
         Jsonb jsonb = JsonbBuilder.create();
-        List<studentDto> studentList = jsonb.fromJson(req.getReader(), new ArrayList<studentDto>() {}.getClass().getGenericSuperclass());
+        List<StudentDto> studentList = jsonb.fromJson(req.getReader(), new ArrayList<StudentDto>() {}.getClass().getGenericSuperclass());
         studentList.forEach(System.out::println);
 
 
