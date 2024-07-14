@@ -9,14 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f59d075d-fcb0-47b3-b245-d438552a53d0" name="Changes" comment=" Save Student with array type">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/StudentData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dao/StudentDataProcess.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/util/UtilProcess.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/StudentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/StudentController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dto/studentDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dto/StudentDto.java" afterDir="false" />
+    <list default="true" id="f59d075d-fcb0-47b3-b245-d438552a53d0" name="Changes" comment="mavan added">
+      <change beforePath="$PROJECT_DIR$/src/main/java/dao/StudentDataProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/StudentDataProcess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +169,7 @@
       <updated>1719651868392</updated>
       <workItem from="1719651869798" duration="4180000" />
       <workItem from="1720235846932" duration="10430000" />
-      <workItem from="1720933336698" duration="1829000" />
+      <workItem from="1720933336698" duration="2332000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1720240531799</created>
@@ -198,7 +192,42 @@
       <option name="project" value="LOCAL" />
       <updated>1720248592888</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="dao class created and implemented.">
+      <created>1720935385968</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1720935385969</updated>
+    </task>
+    <task id="LOCAL-00005" summary="rename class">
+      <created>1720935428955</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1720935428955</updated>
+    </task>
+    <task id="LOCAL-00006" summary="updated some changes.">
+      <created>1720935468597</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1720935468597</updated>
+    </task>
+    <task id="LOCAL-00007" summary="UtilProcess added">
+      <created>1720935499070</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1720935499070</updated>
+    </task>
+    <task id="LOCAL-00008" summary="mavan added">
+      <created>1720935507501</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1720935507501</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +237,11 @@
     <MESSAGE value="bug fix" />
     <MESSAGE value="updated" />
     <MESSAGE value=" Save Student with array type" />
-    <option name="LAST_COMMIT_MESSAGE" value=" Save Student with array type" />
+    <MESSAGE value="dao class created and implemented." />
+    <MESSAGE value="rename class" />
+    <MESSAGE value="updated some changes." />
+    <MESSAGE value="UtilProcess added" />
+    <MESSAGE value="mavan added" />
+    <option name="LAST_COMMIT_MESSAGE" value="mavan added" />
   </component>
 </project>
