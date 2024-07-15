@@ -52,7 +52,14 @@ public final class StudentDataProcess implements StudentData {
 
     @Override
     public boolean deleteStudent(String StudentId, Connection connection) {
-        return false;
+        PreparedStatement ps = null;
+        try {
+            ps = connection.prepareStatement(DELETE_STUDENT);
+            ps.setString(1, StudentId);
+            return ps.executeUpdate() != 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
