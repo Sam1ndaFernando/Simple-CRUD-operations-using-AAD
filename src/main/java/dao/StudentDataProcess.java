@@ -35,8 +35,19 @@ public final class StudentDataProcess implements StudentData {
         return studentDto;
     }
     @Override
-    public boolean saveStudent(StudentDto student, Connection connection) {
-        return false;
+    public boolean saveStudent(StudentDto studentDTO, Connection connection) {
+
+        try{
+            var ps = connection.prepareStatement(SAVE_STUDENT);
+            ps.setString(1, studentDTO.getId());
+            ps.setString(2, studentDTO.getName());
+            ps.setString(3, studentDTO.getEmail());
+            ps.setString(4, studentDTO.getCity());
+            ps.setString(5, studentDTO.getLevel());
+            return ps.executeUpdate() != 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

@@ -9,7 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f59d075d-fcb0-47b3-b245-d438552a53d0" name="Changes" comment="mavan added">
+    <list default="true" id="f59d075d-fcb0-47b3-b245-d438552a53d0" name="Changes" comment="getStudent method complete">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/StudentDataProcess.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/StudentDataProcess.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +171,7 @@
       <workItem from="1719651869798" duration="4180000" />
       <workItem from="1720235846932" duration="10430000" />
       <workItem from="1720933336698" duration="2332000" />
-      <workItem from="1721052225052" duration="382000" />
+      <workItem from="1721052225052" duration="1193000" />
     </task>
     <task id="LOCAL-00001" summary="bug fix">
       <created>1720240531799</created>
@@ -228,7 +229,14 @@
       <option name="project" value="LOCAL" />
       <updated>1720935507501</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="getStudent method complete">
+      <created>1721052623306</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721052623307</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -243,6 +251,7 @@
     <MESSAGE value="updated some changes." />
     <MESSAGE value="UtilProcess added" />
     <MESSAGE value="mavan added" />
-    <option name="LAST_COMMIT_MESSAGE" value="mavan added" />
+    <MESSAGE value="getStudent method complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="getStudent method complete" />
   </component>
 </project>
