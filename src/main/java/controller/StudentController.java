@@ -13,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import util.UtilProcess;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -67,8 +68,33 @@ public class StudentController extends HttpServlet {
     }
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        //send error
+        if (!req.getContentType().toLowerCase().startsWith("application/json") || req.getContentType()==null) {
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
+        // Persist Data
+        try(var writer =resp.getWriter()){
+            Jsonb jsonb = JsonbBuilder.create();
+            StudentDto studentDto = jsonb.fromJson(req.getReader(), StudentDto.class);
+            studentDto.setId(UtilProcess.ganarateId());
+            var saveData = new StudentDataProcess();
+            if (saveData.saveStudent(studentDto,connection)) {
+                writer.write("Data saved successfully");
+                resp.setStatus(HttpServletResponse.SC_CREATED);
+            }else{
+                writer.write("Data not saved");
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            }
+        } catch (IOException e) {
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            throw new RuntimeException(e);
+        }
+    }
 
 
+    @Override
+    protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doPatch(req, resp);
     }
 }
