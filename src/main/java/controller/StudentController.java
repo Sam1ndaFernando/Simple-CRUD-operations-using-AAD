@@ -1,5 +1,6 @@
 package controller;
 
+import dao.StudentDataProcess;
 import dto.StudentDto;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
@@ -54,62 +55,20 @@ public class StudentController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        var studentId = req.getParameter("id");
+        var dataProcess = new StudentDataProcess();
+        try(var Writer=resp.getWriter()){
+            var student = dataProcess.getStudent(studentId, connection);
+            System.out.println(student);
+            resp.setContentType("application/json");
+            var jsonb = JsonbBuilder.create();
+            jsonb.toJson(student, Writer);
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //todo : Save Student
-        if (!req.getContextPath().toLowerCase().startsWith("application/json") || req.getContentType()==null) {
-
-            //send Error
-            resp.sendError(HttpServletResponse.SC_UNSUPPORTED_MEDIA_TYPE);
 
 
-        }
-
-        //todo : Save Student
-        /*String id = UUID.randomUUID().toString();
-        Jsonb jsonb = JsonbBuilder.create();
-        studentDto studentDto = jsonb.fromJson(req.getReader(), studentDto.class);
-        studentDto.setId(id);
-
-        System.out.println(studentDto);*/
-
-
-       //todo : Save Student with array type
-        String id = UUID.randomUUID().toString();
-        Jsonb jsonb = JsonbBuilder.create();
-        List<StudentDto> studentList = jsonb.fromJson(req.getReader(), new ArrayList<StudentDto>() {}.getClass().getGenericSuperclass());
-        studentList.forEach(System.out::println);
-
-
-        /*BufferedReader reader = req.getReader();
-        StringBuilder stringBuilder = new StringBuilder();
-        var writer = resp.getWriter();
-
-
-        reader.lines().forEach(line-> stringBuilder.append(line+"\n"));
-
-        System.out.println(stringBuilder);
-        writer.write(stringBuilder.toString());
-        writer.close();*/
-
-        //JSON manipulate with Parson
-
-      /*  JsonReader reader = Json.createReader(req.getReader());
-        JsonObject jsonObject = reader.readObject();
-        System.out.println(jsonObject.getString("email"));*/
-
-        JsonReader reader = Json.createReader(req.getReader());
-        JsonArray jsonValues = reader.readArray();
-        for (int i = 0; i < jsonValues.size(); i++) {
-
-            JsonObject jsonObject = jsonValues.getJsonObject(i);
-            System.out.println(jsonObject.getString("name"));
-
-            var writer = resp.getWriter();
-            writer.write(toString());
-        }
     }
 }
