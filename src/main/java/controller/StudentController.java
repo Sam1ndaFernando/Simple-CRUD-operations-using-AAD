@@ -14,12 +14,43 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-@WebServlet(urlPatterns = "/student")
+@WebServlet(urlPatterns = "/student"
+//        initParams = {
+//          @WebInitParam(name = "driver-class",value = "com.mysql.cj.jdbc.Driver"),
+//          @WebInitParam(name = "dbURL",value = "jdbc:mysql://localhost:3306/aad67JavaEE?createDatabaseIfNotExist=true"),
+//          @WebInitParam(name = "dbUserName",value = "root"),
+//          @WebInitParam(name = "dbPassword",value = "mysql"),
+//        }
+)
 public class StudentController extends HttpServlet {
+    Connection connection;
+    static String SAVE_STUDENT = "INSERT INTO student (id,name,city,email,level) VALUES (?,?,?,?,?)";
+    static String GET_STUDENT = "SELECT * FROM student WHERE id=?";
+    static String UPDATE_STUDENT = "UPDATE student SET name=?,city=?,email=?,level=? WHERE id=?";
+    static String DELETE_STUDENT = "DELETE FROM student WHERE id=?";
+
+    @Override
+    public void init() throws ServletException {
+        try{
+            var driverClass = getServletContext().getInitParameter("driver-class");
+            var dbUrl = getServletContext().getInitParameter("dbURL");
+            var userName = getServletContext().getInitParameter("dbUserName");
+            var password = getServletContext().getInitParameter("dbPassword");
+            // Get configs from servlet
+//            var driverCalss = getServletConfig().getInitParameter("driver-class");
+//            var dbUrl = getServletConfig().getInitParameter("dbURL");
+//            var userName = getServletConfig().getInitParameter("dbUserName");
+//            var password = getServletConfig().getInitParameter("dbPassword");
+            Class.forName(driverClass);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
