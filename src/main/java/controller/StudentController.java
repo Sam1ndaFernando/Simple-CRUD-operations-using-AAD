@@ -38,6 +38,7 @@ public class StudentController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
+        super.init();
         try{
             var driverClass = getServletContext().getInitParameter("driver-class");
             var dbUrl = getServletContext().getInitParameter("dbURL");
@@ -94,7 +95,25 @@ public class StudentController extends HttpServlet {
 
 
     @Override
-    protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doPatch(req, resp);
+    protected void doPatch(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        if(!req.getContentType().toLowerCase().startsWith("application/json")|| req.getContentType() == null){
+            resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+        }
+
+        try(var writer = resp.getWriter()){
+            var studentId = req.getParameter("stu-id");
+            Jsonb jsonb = JsonbBuilder.create();
+            var studentDataProcess = new StudentDataProcess();
+            var updatedStudent = jsonb.fromJson(req.getReader(), StudentDto.class);
+            if (studentDataProcess.updateStudent(studentId, updatedStudent, connection)) {
+                resp.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            }else {
+                writer.write("Update Failed");
+                resp.sendError(HttpServletResponse.SC_BAD_REQUEST);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 }
